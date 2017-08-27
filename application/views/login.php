@@ -25,7 +25,7 @@ $passData = array(
               'class'   => 'form-control');
 echo form_input($passData);
 $submitData = array(
-            'value'     => 'zarejestruj',
+            'value'     => 'zaloguj',
              'class'    => 'btn btn-outline-info my-2 my-sm-0"');
 echo form_submit($submitData);
 

@@ -6,6 +6,10 @@ class Register extends CI_Controller {
 
 	public function index()
 	{
+		if($this->session->has_userdata('userID') ){
+			echo $this->session->flashdata('userID');
+			header('Location: ' . base_url());
+		}
 		$this->load->library('form_validation');
     $register_data=[];
 		if(isset($_POST['username'])){

@@ -6,6 +6,11 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		if($this->session->has_userdata('userID')){
+			echo $this->session->userdata('userID');;
+		} else {
+			echo 'błąd';
+		}
 		$this->load->library('form_validation');
 		$register=[];
 		if(isset($_POST['username'])){
