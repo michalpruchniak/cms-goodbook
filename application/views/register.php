@@ -43,6 +43,5 @@ $submitData = array(
             'value'     => 'zarejestruj',
              'class'    => 'btn btn-outline-info my-2 my-sm-0"');
 echo form_submit($submitData);
-
 ?>
 </div>
