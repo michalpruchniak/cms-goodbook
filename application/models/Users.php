@@ -7,7 +7,6 @@ class Users extends CI_Model {
 
         public function new_user()
         {
-          $this->load->helper('security');
 
           $this->username = trim(xss_clean($_POST['username']));
           $this->mail = trim(xss_clean($_POST['mail']));
@@ -15,7 +14,6 @@ class Users extends CI_Model {
           $this->db->insert('users', $this);
         }
         public function login(){
-          $this->load->helper('security');
           $this->username = trim(xss_clean($_POST['username']));
           $this->pass = trim(xss_clean(sha1($_POST['pass'])));
 
@@ -27,10 +25,26 @@ class Users extends CI_Model {
         }
 
         public function checkUserID(){
-          $query = $this->db->select('ID')->get_where('users', array(
+          $query = $this->db->get_where('users', array(
                         'username' => $this->username,
                         'pass'     => $this->pass ));
           return $query->row()->ID;
+        }
+
+        public function checkUserRow($id){
+          $query = $this->db->get_where('users', array(
+              'ID' => $id
+          ));
+          return $query->row();
+        }
+
+        public function updatePass($id, $pass){
+          $pass = trim(xss_clean(sha1($pass)));
+          $id = trim(xss_clean($id));
+          $this->db->where('ID', $id);
+          $this->db->update('users', array(
+            'pass' => $pass
+          ));
         }
 }
 ?>

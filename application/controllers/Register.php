@@ -7,7 +7,6 @@ class Register extends CI_Controller {
 	public function index()
 	{
 		if($this->session->has_userdata('userID') ){
-			echo $this->session->flashdata('userID');
 			header('Location: ' . base_url());
 		}
 		$this->load->library('form_validation');
@@ -41,10 +40,6 @@ class Register extends CI_Controller {
       );
 			$this->form_validation->set_rules('repass', 'Re-password',array(
         'trim',
-        'required',
-        'min_length[6]',
-        'max_length[35]',
-        'regex_match[/^[a-zA-Z0-9@\._-]{6,35}$/]',
         'matches[pass]'),
         array('regex_match' => 'Pole %s zawiera niedozwolone znaki',
               'matches'     => 'Hasła różnią się')
