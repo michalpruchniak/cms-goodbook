@@ -1,4 +1,4 @@
-<div class="alert alert-danger">
+<div class="alert alert-success">
   <?php
   echo $message;
   ?>
