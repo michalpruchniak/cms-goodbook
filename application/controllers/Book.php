@@ -8,6 +8,7 @@ class Book extends CI_Controller {
     $this->load->model('books');
     $page = intval($page);
     $countBooks = $this->books->countBooks($genre);
+    echo $countBooks;
     if($page%20==0 && $page < $countBooks ){
       $books_data['books'] = $this->books->pageBooks(20, $page, $genre);
       $books_data['genre'] = $genre;

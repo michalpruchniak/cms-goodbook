@@ -10,7 +10,7 @@ if($books->num_rows() > 0){
 }
 $config = array(
   'base_url'        => 'http://localhost/cms/index.php/book/page/' . $genre,
-  'total_rows'      => $this->books->countBooks(),
+  'total_rows'      => $this->books->countBooks($genre),
   'per_page'        => 20,
   'full_tag_open'   => '<ul class="pagination">',
   'full_tag_close'  => '</ul>',
