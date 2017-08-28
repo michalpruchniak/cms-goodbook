@@ -1,15 +1,14 @@
 <?php
 class Books extends CI_Model {
-  public function pageBooks($page, $how){
-    if($page==1){
-      $from =  0;
-    } else {
-      $from = $page*$how - $how;
-    }
-    $to = $from + $how;
+  public function countBooks(){
+  $query = $this->db->get("books");
+    return $query->num_rows();
+  }
 
-    $query = $this->db->query("SELECT * FROM books LIMIT $how OFFSET $from");
-    return $query->result();
+  public function pageBooks($limit, $from){
+
+    $query = $this->db->query("SELECT * FROM books LIMIT $limit OFFSET $from");
+    return $query;
   }
 }
 ?>
