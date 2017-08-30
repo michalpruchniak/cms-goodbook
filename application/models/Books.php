@@ -21,5 +21,12 @@ class Books extends CI_Model {
     }
     return $query;
   }
+
+  public function showBook($prefix){
+    $query = $this->db->get_where('books', array(
+      'prefix' => $prefix
+    ));
+    return $query->row();
+  }
 }
 ?>

@@ -1,4 +1,4 @@
-header{
+.header-website{
     height: 13vh;
     background-color: aqua;
 }
@@ -13,4 +13,22 @@ footer{
     text-align: center;
     font-size: 18px;
     padding: 12px;
+}
+
+/* BOOK */
+.header-book{
+  display: flex;
+}
+@supports(display: grid){
+  .header-book{
+    display: grid;
+    grid-template-columns: 35% auto;
+  }
+  @media(max-width: 1000px){
+    .header-book{
+      text-align: center;
+      display: grid;
+      grid-template-columns: 100%;
+    }
+  }
 }
