@@ -14,12 +14,27 @@ class Book extends CI_Controller {
     if($this->session->has_userdata('userID') ){
         $user = $this->session->userdata('userID');
         if($this->rate->userRate($user, $bookID)){
-          $book->stars = 'Twoja ocena to: ' . $this->rate->userRate($user, $bookID)->rate;
+          //zalogowany, głosował
+          $stars['log'] = 3;
+          if(isset($_POST['star']) && $_POST['star'] >= 1 && $_POST['star'] <= 5){
+            $this->rate->saveVote($this->session->userdata('userID'), $bookID, $_POST['star']);
+          }
+          $stars['checked'] = $this->rate->userRate($user, $bookID)->rate;
+          $book->stars = $this->load->view('stars', $stars, true);
         } else {
-          $book->stars = 'Możesz głosować' . $user;
+          //zalogowany, ale nie głosował
+          $stars['log'] = 2;
+          if(isset($_POST['star'])){
+            $this->rate->saveVote($this->session->userdata('userID'), $bookID, $_POST['star']);
+            $stars['log']=3;
+            $stars['checked'] = $_POST['star'];
+          }
+          $book->stars = $this->load->view('stars', $stars, true);
         }
       } else {
-        $book->stars = 'log in';
+        //niezalogowany
+        $stars['log'] = 1;
+        $book->stars = $this->load->view('stars', $stars, true);
     }
     if($book){
       $data['content'] = $this->load->view('showbook', $book ,true);

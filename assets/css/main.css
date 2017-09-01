@@ -32,3 +32,39 @@ footer{
     }
   }
 }
+
+/* STARS */
+.stars{
+  height: 30px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.stars > input[type="radio"] {
+  position: absolute;
+  left: -9999999px;
+}
+.stars > label{
+  display: flex;
+  flex-direction: column;
+  width: 30px;
+  height: 30px;
+  color: transparent;
+}
+
+.stars > label::before{
+  content: '★';
+  color: #c0c0c0;
+  font-size: 30px;
+  line-height: 30px;
+}
+.online > label:hover::before,
+.online > label:hover ~ label::before,
+.online > input:checked ~ label::before{
+  color: #dfa510;
+}
