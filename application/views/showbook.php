@@ -1,11 +1,11 @@
-<header class="header-book">
+<header class="header-book row">
 <figure class="cover">
   <?php
   echo '<img src="' .$cover. '" alt="' .$title. '" />';
   ?>
 </figure>
 <div class="book-details">
-  <h2> <?php echo $title; ?></h2>
+  <h2 class="title"> <?php echo $title; ?></h2>
   <table class="table table-hover">
     <tbody>
       <tr>

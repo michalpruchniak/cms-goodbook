@@ -1,3 +1,6 @@
+body {
+  overflow-X: hidden;
+}
 .header-website{
     height: 13vh;
     background-color: aqua;
@@ -7,7 +10,7 @@ article{
     min-height: 76vh;
 }
 footer{
-  min-height: 5vh;
+    min-height: 5vh;
     background-color: #313131;
     color: #c1c1c1;
     text-align: center;
@@ -26,22 +29,58 @@ footer{
   }
   @media(max-width: 1000px){
     .header-book{
-      text-align: center;
-      display: grid;
       grid-template-columns: 100%;
+    }
+    .cover, h2.title{
+      text-align: center;
+    }
+  }
+}
+
+
+/* ALL BOOKS */
+
+.books-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.mini{
+  text-align: center;
+  padding: 0;
+  display: block;
+}
+/*.mini img{}*/
+.books-list img{
+  height: 200px;
+  width: auto;
+}
+@supports(display: grid){
+  .books-list{
+    display: grid;
+    grid-gap: 1em;
+  }
+  @media screen and (max-width: 700px){
+    .books-list{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (min-width: 700px){
+    .books-list{
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media screen and (min-width: 1000px){
+    .books-list{
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 }
 
 /* STARS */
 .stars{
-  height: 30px;
   width: 200px;
-  padding: 10px;
-  border-radius: 15px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
   flex-direction: row-reverse;
 }
 

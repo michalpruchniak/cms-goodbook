@@ -2,11 +2,20 @@
 <?php
 if($books->num_rows() > 0){
   $this->load->model('books');
+  echo '<div class="books-list">';
   foreach($books->result() as $book){
-    echo '<br>';
-    echo $book->bookID . ' ';
-    echo $book->title;
+    echo '
+    <figure class="mini">
+    <a href="' .base_url(). '/ksiazka/' .$book->prefix. '">
+      <img src="' .$book->cover. '"
+        data-toggle="tooltip" data-placement="bottom" data-html="true"
+          title="<b>' .$book->title. '</b>
+                 <br><small>' .$book->author. '</small>">
+    </a>
+    </figure>
+    ';
   }
+  echo '</div>';
 }
 $config = array(
   'base_url'        => 'http://localhost/cms/ksiazki/' . $genre,
