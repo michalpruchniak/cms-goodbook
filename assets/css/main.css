@@ -1,6 +1,9 @@
 body {
   overflow-X: hidden;
 }
+nav{
+  z-index: 99;
+}
 .header-website{
     height: 13vh;
     background-color: aqua;
@@ -17,7 +20,36 @@ footer{
     font-size: 18px;
     padding: 12px;
 }
-
+/* SEARCH */
+.search-container{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+}
+.search-contaiener ul{
+  display: block;
+  position: absolute;
+  padding: 0;
+  border: 1px solid #c9bcbe;
+  background-color: #FFF;
+}
+.search-contaiener li{
+  list-style-type: none;
+  border: 1px solid #c9bcbe;
+  padding: 12px;
+  margin: 0;
+}
+.prompt ul>a, .prompt ul>a:hover{
+  text-decoration: none;
+}
+.prompt li{
+  transition: .4s;
+}
+.prompt li:hover{
+  background-color: #5cb85c;
+  color: #FFF;
+}
 /* BOOK */
 .header-book{
   display: flex;
@@ -39,7 +71,6 @@ footer{
 
 
 /* ALL BOOKS */
-
 .books-list{
   display: flex;
   flex-wrap: wrap;
@@ -49,7 +80,6 @@ footer{
   padding: 0;
   display: block;
 }
-/*.mini img{}*/
 .books-list img{
   height: 200px;
   width: auto;
