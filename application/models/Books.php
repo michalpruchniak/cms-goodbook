@@ -28,5 +28,13 @@ class Books extends CI_Model {
     ));
     return $query->row();
   }
+  public function showAllResults($title=false){
+    if($title != false){
+      $query = $this->db->query('SELECT * FROM books
+                                  WHERE title like "%' .$title.'%"
+                                  OR author like "%' .$title. '%"');
+      return $query;
+    }
+  }
 }
 ?>
