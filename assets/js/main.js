@@ -11,6 +11,6 @@ $(function(){
   var search= $('input[name="search"]');
   search.on("keyup", function(){
     var value = $(this).val().replace(" ", "-+_-");
-    $(".prompt").load("http://localhost/cms/ajax/showresults/" + value.replace(" ", "-"));
+    $(".prompt").load("http://localhost/cms/ajax/showresults/" + value);
   });
 });
