@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Search extends CI_Controller {
   public function index(){
-    if(!isset($_POST['search'])){
+    if(!isset($_POST['search']) || strlen($_POST['search']) < 1){
       $search_error['message'] = 'Brak wyników wyszukiwania';
       $data['content'] = $this->load->view('alerts/errors', $search_error, true);
     } else {
