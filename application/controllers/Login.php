@@ -7,12 +7,18 @@ class Login extends CI_Controller {
 	private function newSession(){
 		$this->load->model('users');
 
-		$this->session->set_userdata('userID', $this->users->checkUserID());
+		$userID = $this->users->checkUserID();
+		$this->session->set_userdata('userID', $userID);
+		
+		if($this->users->checkUserRow($userID)->admin == 1){
+			$this->session->set_userdata('admin', true);
+		} else {
+			$this->session->set_userdata('admin', false);
+		}
 	}
 	public function index()
 	{
 		if($this->session->has_userdata('userID') ){
-			echo $this->session->flashdata('userID');
 			header('Location: ' . base_url());
 		}
 		$this->load->library('form_validation');
