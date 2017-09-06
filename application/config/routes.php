@@ -58,3 +58,4 @@ $route['ksiazki/(:any)/(:num)'] = 'book/page/$1/$2';
 $route['ksiazka/(:any)'] = 'book/showbook/$1';
 $route['zarejestruj'] = 'register';
 $route['zaloguj'] = 'login';
+$route['ksiazka'] = 'book';

@@ -27,7 +27,7 @@ class Book extends CI_Controller {
               }
               return $this->load->view('stars', $stars, true);
       }
-      
+
       } else {
             //niezalogowany
             $stars['log'] = 1;
@@ -69,5 +69,12 @@ class Book extends CI_Controller {
       ),true);
     }
     $this->load->view('template', $data);
+  }
+
+  public function index(){
+      $data['content'] = $this->load->view('alerts/errors', array(
+        'message' => "Nie wybrano żadnej książki do wyświetlenia"
+      ), true);
+      $this->load->view('template', $data);
   }
 }
