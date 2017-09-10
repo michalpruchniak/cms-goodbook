@@ -7,7 +7,7 @@ if($books->num_rows() > 0){
     echo '
     <figure class="mini">
     <a href="' .base_url(). '/ksiazka/' .$book->prefix. '">
-      <img src="' .$book->cover. '"
+      <img src="' . base_url() . 'upload/' .$book->cover. '.png"
         data-toggle="tooltip" data-placement="bottom" data-html="true"
           title="<b>' .$book->title. '</b>
                  <br><small>' .$book->author. '</small>">
