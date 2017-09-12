@@ -19,7 +19,8 @@ $(function(){
 $(function(){
   $('#title').on("keyup", function(event){
     event.preventDefault();
-    if($(this).val().length < 50){
+    if($(this).val().length < 30 &&
+      $("#prefix").attr("readonly")){
       var text = $(this).val().split(" ").join("-");
       text = text.split("ą").join("a");
       text = text.split("ś").join("s");

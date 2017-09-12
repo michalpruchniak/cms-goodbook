@@ -6,7 +6,7 @@ if($books->num_rows() > 0){
   foreach($books->result() as $book){
     echo '
     <figure class="mini">
-    <a href="' .base_url(). '/ksiazka/' .$book->prefix. '">
+    <a href="' .base_url(). 'ksiazka/' .$book->prefix. '">
       <img src="' . base_url() . 'upload/' .$book->cover. '.png"
         data-toggle="tooltip" data-placement="bottom" data-html="true"
           title="<b>' .$book->title. '</b>

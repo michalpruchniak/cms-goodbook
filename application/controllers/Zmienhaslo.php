@@ -50,10 +50,9 @@ class Zmienhaslo extends CI_Controller {
               $this->session->userdata('userID'),
               $_POST['pass']
             );
-            $update_message = '
-                    <div class="alert alert-success">
-                      Hasło zostało zaktualizowane
-                    </div>';
+            $update_message = $this->load->view('alerts/success', array(
+							'message' => 'Hasło zostało zmienione'
+						));
           } catch(Exception $e){
             $update_message = 'Wystąpił błąd: ' . $e->getMessage();
           } finally {

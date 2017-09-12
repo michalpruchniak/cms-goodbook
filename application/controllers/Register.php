@@ -52,9 +52,9 @@ class Register extends CI_Controller {
 				try{
 					$this->load->model('users');
 					$this->users->new_user();
-					$this->load->view('alerts/success', array(
+					$register_message = $this->load->view('alerts/success', array(
 						'message' => 'Zarejestrowałeś się poprawnie'
-					));
+					), true);
 				} catch(Exception $e){
 					$register_message = 'Wystąpił błąd: ' . $e->getMessage();
 				} finally {
