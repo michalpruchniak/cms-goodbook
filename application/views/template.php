@@ -31,17 +31,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           Kategorie
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Kryminał</a>
-          <a class="dropdown-item" href="#">Horror</a>
-          <a class="dropdown-item" href="#">Literatura faktura</a>
-          <a class="dropdown-item" href="#">Literatura piękna</a>
+          <?php
+            echo '<a class="dropdown-item" href="' .base_url(). 'ksiazki/cryme">Kryminał</a>';
+            echo '<a class="dropdown-item" href="' .base_url(). 'ksiazki/dystopia">Dystopia</a>';
+            echo '<a class="dropdown-item" href="' .base_url(). 'ksiazki/sci-fi">Science Fiction</a>';
+            echo '<a class="dropdown-item" href="' .base_url(). 'ksiazki/facts">Literatura faktu</a>';
+            echo '<a class="dropdown-item" href="' .base_url(). 'ksiazki/horror">Horror</a>';
+            echo '<a class="dropdown-item" href="' .base_url(). 'ksiazki">Wszystkie</a>';
+          ?>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Autorzy</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Moja biblioteczka</a>
       </li>
     </ul>
     <?php
@@ -55,9 +53,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   if(isset($content)){
     echo $content;
   } else {
-    echo '<div class="alert alert-danger">
-    <strong>Błąd!</strong> Brak elementów do wyświetlenia
-    </div>';
+    $this->load->view('alerts/errors', array(
+      'message' => '<strong>Brak elementów do wyświetlenia</strong>'
+    ));
   }
 ?>
 </article>

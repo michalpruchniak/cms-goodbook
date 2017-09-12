@@ -30,7 +30,7 @@
   </table>
 </div>
 </header>
-<div class="row">
+<div class="row book-describe">
   <h3>Opis</h3>
 <p><?php echo $describebook; ?></p>
 </div>

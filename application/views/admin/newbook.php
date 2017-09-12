@@ -24,16 +24,18 @@ echo '<label for="author">Autor</label>';
 echo form_input($authorData);
 
 $genre = array(
+  'cryme'    => 'Kryminał',
   'dystopia' => 'Dystopia',
-  'sci-fi' => 'Science Fiction',
-  'fantasy' => 'Fantasy',
-  'facts' => 'Literatura faktu'
+  'sci-fi'   => 'Science Fiction',
+  'fantasy'  => 'Fantasy',
+  'facts'    => 'Literatura faktu',
+  'horror'   => 'Horror'
 );
 $genreData = array(
-  'id' => 'genre'
+  'id'   => 'genre'
 );
 echo '<label for="genre">Gatunek</label>';
-echo form_dropdown('genre', $genre, $genreData);
+echo form_dropdown('genre', $genre, '', 'class="form-control"');
 
 $yearData = array(
               'name'    => 'year',
@@ -54,11 +56,12 @@ echo form_textarea($describeData);
 
 $activePrefix = array(
               'name'    => 'activePrefix',
-              'id'      => 'activePrefix');
-echo '<div class="row">';
-echo '<label for="activePrefix">Edytuj pole <i>Prefix</i> samodzielnie</label>';
+              'id'      => 'activePrefix',
+              'class'   => 'form-check-input');
+echo '<div class="form-check">';
+echo '<label class="form-check-label">';
 echo form_checkbox($activePrefix);
-echo "</div>";
+echo "Wprowadź prefix samodzielnie</label></div>";
 $prefixData = array(
               'name'    => 'prefix',
               'id'      => 'prefix',
@@ -66,11 +69,11 @@ $prefixData = array(
             'readonly' => '');
 echo '<label for="author">Prefix</label>';
 echo form_input($prefixData);
-
-echo '<input type="file" name="coverimg" size="20" />';
+echo '<label>Wybierz okładkę</label>';
+echo '<input type="file" class="form-control-file" name="coverimg" size="20" />';
 $submitData = array(
             'value'     => 'Dodaj',
-             'class'    => 'btn btn-outline-info my-2 my-sm-0"');
+             'class'    => 'btn btn-outline-info my-2 my-sm-0');
 echo form_submit($submitData);
 
 ?>

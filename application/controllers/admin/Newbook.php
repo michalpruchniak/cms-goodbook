@@ -13,7 +13,7 @@ class  Newbook extends CI_Controller {
     } else {
       $data['content'] = $this->load->view('admin/newbook', '', true);
 
-      if($this->input->post('title')){
+      if(isset($_POST['title'])){
         $this->form_validation->set_rules('title', 'Title', array(
           'trim',
           'required',
